@@ -156,12 +156,14 @@ body {
 
 /* ヒーローセクション */
 .hero {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    background: #000000;
     position: relative;
     color: #fff;
-    padding: 140px 0;
-    text-align: center;
+    padding: 120px 0;
     overflow: hidden;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
 }
 
 .hero::before {
@@ -172,29 +174,100 @@ body {
     right: 0;
     bottom: 0;
     background:
-        radial-gradient(circle at 20% 50%, rgba(230, 43, 30, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+        radial-gradient(ellipse at 30% 50%, rgba(230, 43, 30, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 50%, rgba(230, 43, 30, 0.05) 0%, transparent 60%);
     pointer-events: none;
+    z-index: 1;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-video {
+    flex: 1.3;
+    position: relative;
+}
+
+.hero-video::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(135deg, rgba(230, 43, 30, 0.3), rgba(230, 43, 30, 0.1));
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+.hero-video:hover::before {
+    opacity: 1;
+}
+
+.hero-video video {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.9),
+        0 0 1px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(0.95) contrast(1.1);
+}
+
+.hero-video video:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 40px 100px rgba(0, 0, 0, 0.95),
+        0 0 60px rgba(230, 43, 30, 0.2);
+    filter: brightness(1) contrast(1.15);
 }
 
 .hero h1 {
-    font-size: 56px;
-    margin-bottom: 20px;
-    font-weight: 700;
-    background: linear-gradient(135deg, #fff 0%, #e62b1e 50%, #d4af37 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 64px;
+    margin-bottom: 30px;
+    font-weight: 800;
+    color: #ffffff;
     position: relative;
-    text-shadow: 0 0 30px rgba(230, 43, 30, 0.3);
+    letter-spacing: -1px;
+    line-height: 1.1;
+    text-shadow:
+        0 1px 0 rgba(230, 43, 30, 0.3),
+        0 2px 0 rgba(230, 43, 30, 0.2),
+        0 3px 0 rgba(230, 43, 30, 0.1);
+}
+
+.hero h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #e62b1e, transparent);
 }
 
 .hero p {
-    font-size: 24px;
-    opacity: 0.9;
-    color: #e0e0e0;
+    font-size: 20px;
+    color: #999999;
     position: relative;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-top: 35px;
 }
 
 /* セクション共通スタイル */
@@ -295,65 +368,225 @@ body {
 
 /* トークスセクション */
 .talks-section {
-    background-color: #0a0a0a;
+    background-color: #000000;
+    padding: 100px 0;
+}
+
+/* イベントテーマ */
+.event-theme {
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    text-align: center;
+    margin: 80px 0 60px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 25px;
+}
+
+.event-theme::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e62b1e, transparent);
+}
+
+.event-theme::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
 
 .talks-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 35px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 60px 40px;
+    margin-top: 60px;
 }
 
 .talk-item {
-    text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
 .talk-item:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
 }
 
 .talk-image {
     width: 100%;
     aspect-ratio: 1;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-    border-radius: 12px;
+    background: #111;
     overflow: hidden;
-    margin-bottom: 20px;
-    border: 2px solid rgba(230, 43, 30, 0.3);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
+    margin-bottom: 25px;
     position: relative;
 }
 
-.talk-item:hover .talk-image {
-    border-color: rgba(230, 43, 30, 0.8);
-    box-shadow: 0 8px 30px rgba(230, 43, 30, 0.4);
+.talk-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(230, 43, 30, 0);
+    transition: background 0.4s ease;
+}
+
+.talk-item:hover .talk-image::after {
+    background: rgba(230, 43, 30, 0.15);
 }
 
 .talk-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: grayscale(0.3);
 }
 
 .talk-item:hover .talk-image img {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    filter: grayscale(0);
 }
 
-.talk-item h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-    color: #fff;
-    font-weight: 600;
+.talk-info {
+    text-align: left;
 }
 
 .speaker-name {
-    color: #999;
-    font-size: 15px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.speaker-title {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 15px;
     letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+
+.talk-title {
+    font-size: 15px;
+    color: #999;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.talk-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.talk-link {
+    display: inline-block;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+    width: fit-content;
+    letter-spacing: 0.5px;
+}
+
+.talk-link::before {
+    content: '→ ';
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.talk-link:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.talk-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #e62b1e;
+    transition: width 0.3s ease;
+}
+
+.talk-link:hover::after {
+    width: 100%;
+}
+
+.talk-link.disabled {
+    color: #444;
+    cursor: not-allowed;
+}
+
+.talk-link.disabled:hover::before {
+    opacity: 0;
+}
+
+.talk-link.disabled::after {
+    display: none;
+}
+
+/* Read More ボタン */
+.read-more-container {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.read-more-btn {
+    display: inline-block;
+    padding: 16px 50px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #ffffff;
+    background: transparent;
+    border: 1px solid #ffffff;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.read-more-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.read-more-btn:hover {
+    color: #000000;
+    border-color: #ffffff;
+}
+
+.read-more-btn:hover::before {
+    left: 0;
 }
 
 /* イベントセクション */
@@ -604,12 +837,39 @@ body {
         margin-top: 20px;
     }
 
+    .hero {
+        min-height: auto;
+        padding: 80px 0;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
     .hero h1 {
-        font-size: 32px;
+        font-size: 36px;
+        letter-spacing: -0.5px;
+    }
+
+    .hero h1::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .hero p {
-        font-size: 18px;
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+
+    .event-theme {
+        font-size: 32px;
+        letter-spacing: 4px;
+        margin: 60px 0 40px;
     }
 
     .section {
@@ -634,14 +894,23 @@ body {
     }
 
     .hero {
-        padding: 80px 0;
+        padding: 60px 0;
+        min-height: auto;
     }
 
     .hero h1 {
-        font-size: 24px;
+        font-size: 28px;
+        letter-spacing: -0.5px;
     }
 
     .hero p {
-        font-size: 16px;
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .event-theme {
+        font-size: 24px;
+        letter-spacing: 2px;
+        margin: 50px 0 30px;
     }
 }
