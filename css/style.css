@@ -601,6 +601,468 @@ body {
     line-height: 2;
 }
 
+.events-intro {
+    text-align: center;
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.event-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(230, 43, 30, 0.2);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #e62b1e, #d4af37);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(230, 43, 30, 0.3);
+    border-color: rgba(230, 43, 30, 0.6);
+}
+
+.event-card:hover::before {
+    opacity: 1;
+}
+
+.event-card-header {
+    background: linear-gradient(135deg, rgba(230, 43, 30, 0.1), rgba(212, 175, 55, 0.05));
+    padding: 40px 30px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.event-year {
+    font-size: 18px;
+    font-weight: 700;
+    color: #d4af37;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.event-theme {
+    font-size: 36px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(230, 43, 30, 0.3);
+}
+
+.event-card-body {
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.event-description {
+    font-size: 16px;
+    color: #999;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.event-info {
+    margin-top: 20px;
+}
+
+.event-date {
+    font-size: 14px;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+.event-card-link {
+    display: block;
+    text-align: center;
+    padding: 18px 30px;
+    background: rgba(230, 43, 30, 0.1);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-card-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #e62b1e, #d4af37);
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.event-card-link:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.event-card-link:hover::before {
+    left: 0;
+}
+
+/* イベント詳細ページ */
+.event-hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    padding: 150px 0 100px;
+    margin-top: 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at 30% 50%, rgba(230, 43, 30, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.event-hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.event-hero-year {
+    font-size: 20px;
+    font-weight: 700;
+    color: #d4af37;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.event-hero-title {
+    font-size: 72px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 8px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    text-shadow: 0 4px 20px rgba(230, 43, 30, 0.3);
+}
+
+.event-hero-tagline {
+    font-size: 20px;
+    color: #999;
+    letter-spacing: 2px;
+    line-height: 1.8;
+}
+
+.event-details-section {
+    background-color: #0a0a0a;
+}
+
+.event-overview {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+.event-overview-text {
+    font-size: 18px;
+    color: #999;
+    line-height: 2;
+}
+
+.event-overview-text p {
+    margin-bottom: 25px;
+}
+
+.event-overview-info {
+    background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(230, 43, 30, 0.2);
+}
+
+.info-item {
+    margin-bottom: 35px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item h3 {
+    font-size: 14px;
+    color: #d4af37;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.info-item p {
+    font-size: 18px;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.section-description {
+    text-align: center;
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+/* イベント情報セクション */
+.event-info-section {
+    background-color: #0f0f0f;
+}
+
+.event-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.info-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(230, 43, 30, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(230, 43, 30, 0.5);
+    box-shadow: 0 10px 30px rgba(230, 43, 30, 0.2);
+}
+
+.info-card-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.info-card h3 {
+    font-size: 16px;
+    color: #d4af37;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.info-card p {
+    font-size: 18px;
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.info-detail {
+    font-size: 14px !important;
+    color: #999 !important;
+    margin-top: 10px;
+}
+
+/* プログラムセクション */
+.program-section {
+    background-color: #0a0a0a;
+}
+
+.program-timeline {
+    max-width: 800px;
+    margin: 50px auto 0;
+    position: relative;
+}
+
+.program-timeline::before {
+    content: '';
+    position: absolute;
+    left: 100px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #e62b1e, #d4af37);
+}
+
+.timeline-item {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 92px;
+    top: 8px;
+    width: 18px;
+    height: 18px;
+    background: #e62b1e;
+    border-radius: 50%;
+    border: 3px solid #0a0a0a;
+    box-shadow: 0 0 0 2px #e62b1e;
+}
+
+.timeline-time {
+    width: 80px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #d4af37;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+}
+
+.timeline-content {
+    background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
+    padding: 25px 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(230, 43, 30, 0.15);
+    flex-grow: 1;
+}
+
+.timeline-content h3 {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    font-size: 15px;
+    color: #999;
+    line-height: 1.6;
+}
+
+/* チケットセクション */
+.ticket-section {
+    background-color: #0f0f0f;
+}
+
+.ticket-notice {
+    max-width: 700px;
+    margin: 50px auto;
+    text-align: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
+    padding: 50px 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(230, 43, 30, 0.2);
+}
+
+.ticket-notice p {
+    font-size: 16px;
+    color: #999;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.ticket-cta {
+    margin-top: 30px;
+}
+
+.ticket-btn {
+    display: inline-block;
+    padding: 16px 50px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #e62b1e, #d4af37);
+    border: none;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.ticket-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(230, 43, 30, 0.4);
+}
+
+/* ハイライトセクション */
+.highlight-section {
+    background-color: #0f0f0f;
+}
+
+.highlight-content {
+    max-width: 800px;
+    margin: 50px auto 0;
+}
+
+.highlight-text {
+    font-size: 18px;
+    color: #999;
+    line-height: 2;
+}
+
+.highlight-text p {
+    margin-bottom: 25px;
+}
+
+/* レポートセクション */
+.report-section {
+    background-color: #0a0a0a;
+}
+
+.report-content {
+    max-width: 800px;
+    margin: 50px auto 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
+    padding: 50px 60px;
+    border-radius: 12px;
+    border: 1px solid rgba(230, 43, 30, 0.2);
+}
+
+.report-content p {
+    font-size: 16px;
+    color: #999;
+    line-height: 2;
+    margin-bottom: 25px;
+}
+
+.report-content p:last-child {
+    margin-bottom: 0;
+}
+
 /* スピーカーセクション */
 .speakers-section {
     background-color: #0a0a0a;
@@ -883,8 +1345,68 @@ body {
     .news-grid,
     .talks-grid,
     .speakers-grid,
-    .partners-grid {
+    .partners-grid,
+    .events-grid {
         grid-template-columns: 1fr;
+    }
+
+    .event-hero {
+        padding: 100px 0 60px;
+    }
+
+    .event-hero-title {
+        font-size: 42px;
+        letter-spacing: 4px;
+    }
+
+    .event-hero-tagline {
+        font-size: 16px;
+    }
+
+    .event-overview {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .event-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .program-timeline::before {
+        left: 70px;
+    }
+
+    .timeline-item {
+        gap: 30px;
+    }
+
+    .timeline-item::before {
+        left: 62px;
+    }
+
+    .timeline-time {
+        width: 60px;
+        font-size: 16px;
+    }
+
+    .timeline-content {
+        padding: 20px 25px;
+    }
+
+    .timeline-content h3 {
+        font-size: 16px;
+    }
+
+    .timeline-content p {
+        font-size: 14px;
+    }
+
+    .ticket-notice {
+        padding: 40px 30px;
+    }
+
+    .report-content {
+        padding: 40px 30px;
     }
 }
 
@@ -912,5 +1434,43 @@ body {
         font-size: 24px;
         letter-spacing: 2px;
         margin: 50px 0 30px;
+    }
+
+    .event-hero-title {
+        font-size: 32px;
+        letter-spacing: 3px;
+    }
+
+    .event-hero-tagline {
+        font-size: 14px;
+    }
+
+    .program-timeline::before {
+        left: 50px;
+    }
+
+    .timeline-item {
+        gap: 20px;
+    }
+
+    .timeline-item::before {
+        left: 42px;
+    }
+
+    .timeline-time {
+        width: 50px;
+        font-size: 14px;
+    }
+
+    .timeline-content {
+        padding: 15px 20px;
+    }
+
+    .ticket-notice {
+        padding: 30px 20px;
+    }
+
+    .report-content {
+        padding: 30px 20px;
     }
 }
